@@ -14,10 +14,13 @@ services:
       replicas: 1
   # Start Postgres
   postgres:
-    image: 'postgres:13.4'
+    image: 'postgres:14.2'
     ports:
       - "5432:5432"
-    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    # restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
