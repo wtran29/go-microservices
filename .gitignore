@@ -18,3 +18,8 @@ tmp/
 
 .env
 filter.sh
+
+*authApp*
+*brokerApp*
+*frontApp.exe*
+*loggerApp*
