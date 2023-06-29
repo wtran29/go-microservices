@@ -25,12 +25,13 @@ services:
       replicas: 1
     environment:
       DSN: "host=postgres port=5432 user=postgres password=postgres dbname=users sslmode=disable timezone=UTC connect_timeout=5"
-      
+
   # Start Postgres
   postgres:
     image: 'postgres:14.2'
     ports:
       - "5432:5432"
+    restart: always
     deploy:
       mode: replicated
       replicas: 1
@@ -65,31 +66,3 @@ services:
 
     volumes:
       - ./db-data/mariadb:/docker-entrypoint-initdb.d
-
-  # Start sftp webdav, and admin interface
-  sftp:
-    image: 'drakkan/sftpgo:latest'
-    ports:
-      - "8080:8080"
-      - "2022:2022"
-      - "10080:10080"
-    restart: always
-    environment:
-      SFTPGO_WEBDAVD__BINDINGS__0__PORT: 10080
-    volumes:
-      - ./db-data/sftp/:/mnt/data/
-      - ./db-data/home/:/var/lib/sftpgo
-
-  # Start minio
-  minio:
-    image: 'quay.io/minio/minio'
-    command: server /mnt/data --console-address ":9001"
-    ports:
-      - "9000:9000"
-      - "9001:9001"
-    restart: always
-    environment:
-      MINIO_ROOT_USER: root
-      MINIO_ROOT_PASSWORD: password
-    volumes:
-      - ./db-data/minio/:/mnt/data/
