@@ -19,7 +19,18 @@ tmp/
 .env
 filter.sh
 
-*authApp*
-*brokerApp*
-*frontApp.exe*
-*loggerApp*
+authApp
+brokerApp
+frontApp.exe
+loggerApp
+frontEndApp
+
+Caddyfile
+
+
+docker-compose.yml
+k8s/
+
+postgres.yml
+swarm.production.yml
+swarm.yml
