@@ -31,9 +31,11 @@ Caddyfile.production
 caddy.dockerfile
 caddy.production.dockerfile
 
-docker-compose.yml
+
 k8s/
 
 postgres.yml
 swarm.production.yml
 swarm.yml
+project/docker-compose.yml
+project/docker-compose.yml
