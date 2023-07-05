@@ -26,7 +26,10 @@ loggerApp
 frontEndApp
 
 Caddyfile
+Caddyfile.production
 
+caddy.dockerfile
+caddy.production.dockerfile
 
 docker-compose.yml
 k8s/
